@@ -13680,9 +13680,10 @@ load_vcrun2019()
     # 2022/01/18: 4c6c420cf4cbf2c9c9ed476e96580ae92a97b2822c21329a2e49e8439ac5ad30
     # 2023/12/30: 29f649c08928b31e6bb11d449626da14b5e99b5303fe2b68afa63732ef29c946
     # 2024/10/17: 49545cb0f6499c4a65e1e8d5033441eeeb4edfae465a68489a70832c6a4f6399
+    # 2026/08/26: 38c9437e6e9ef1db2671b3f0c879febec08521bd2c23231199f626b69ae1c65e
     w_override_dlls native,builtin api-ms-win-crt-private-l1-1-0 api-ms-win-crt-conio-l1-1-0 api-ms-win-crt-heap-l1-1-0 api-ms-win-crt-locale-l1-1-0 api-ms-win-crt-math-l1-1-0 api-ms-win-crt-runtime-l1-1-0 api-ms-win-crt-stdio-l1-1-0 api-ms-win-crt-time-l1-1-0 atl140 concrt140 msvcp140 msvcp140_1 msvcp140_2 msvcp140_atomic_wait msvcp140_codecvt_ids vcamp140 vccorlib140 vcomp140 vcruntime140
 
-    w_download https://aka.ms/vs/16/release/vc_redist.x86.exe 49545cb0f6499c4a65e1e8d5033441eeeb4edfae465a68489a70832c6a4f6399
+    w_download https://aka.ms/vs/16/release/vc_redist.x86.exe 38c9437e6e9ef1db2671b3f0c879febec08521bd2c23231199f626b69ae1c65e
 
     # Setup will refuse to install msvcp140 & msvcp140_2 because the builtin's version number is higher, so manually replace them
     # See https://bugs.winehq.org/show_bug.cgi?id=57518
@@ -13712,11 +13713,12 @@ load_vcrun2019()
             # 2022/01/18: 296f96cd102250636bcd23ab6e6cf70935337b1bbb3507fe8521d8d9cfaa932f
             # 2023/12/30: cee28f29f904524b7f645bcec3dfdfe38f8269b001144cd909f5d9232890d33b
             # 2024/10/17: 5d9999036f2b3a930f83b7fe3e2186b12e79ae7c007d538f52e3582e986a37c3
+            # 2026/08/26: 6afae68a783f11292149175844aed0e2ce3f247bc0250f6cb18c931295b3f399
 
             # vcruntime140_1 is only shipped on x64:
             w_override_dlls native,builtin vcruntime140_1
 
-            w_download https://aka.ms/vs/16/release/vc_redist.x64.exe 5d9999036f2b3a930f83b7fe3e2186b12e79ae7c007d538f52e3582e986a37c3
+            w_download https://aka.ms/vs/16/release/vc_redist.x64.exe 6afae68a783f11292149175844aed0e2ce3f247bc0250f6cb18c931295b3f399
 
             # Also replace 64-bit msvcp140.dll & msvcp140_2.dll
             w_try_cabextract --directory="${W_TMP}/win64"  "${W_CACHE}"/"${W_PACKAGE}"/vc_redist.x64.exe -F 'a12'
